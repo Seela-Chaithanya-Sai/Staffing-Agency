@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nexus Staffing — Services</title>
+<style>
+  :root{
+    --ink:#12182B;
+    --ink-2:#7361b6;
+    --paper:white;
+    --paper-2:#c991c1;
+    --verdigris:#2F6E64;
+    --verdigris-light:#15c733;
+    --amber:#E8A33D;
+    --slate:#5C6470;
+    --line: rgba(246,243,236,0.14);
+    --radius: 14px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    font-family:'IBM Plex Sans', 'Segoe UI', Arial, sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 80px;
+            width: 200px;
+            display: block;
+            padding-left: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            font-size: 0.95rem;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent-hover);
+        }
+        .signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+           
+        }
+        .hamburger span{
+          display: block;
+          width: 28px;
+          height: 3px;
+          background: black;
+          margin: 5px 0;
+        }
+
+
+
+          
+        
+
+        /*mobile*/
+  @media (max-width:768px){
+    .stats{
+      display: flex !important;
+     flex-direction: column;
+     align-items: center;
+      gap: 15px;
+      
+
+    }
+    .stat-box{
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      max-width: 320px;
+      box-sizing: border-box;
+
+    }
+    
+    .stat-box h2{
+      margin-bottom: 8px;
+    }
+    .stat-box p{
+      font-size: 15px;
+    }
+    header{
+      position: relative;
+      z-index:9999;
+    }
+    .navbar{
+      position: relative;
+    }
+    .nav-links{
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 220px;
+      background: white;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      gap: 1px;
+    }
+    .nav-links.active{
+      display: flex;
+      gap: 10px;
+    }
+    .nav-links li{
+      margin: 10px 0;
+      gap: 1px;
+    }
+    .hamburger{
+      display: block;
+      cursor: pointer;
+      position: relative;
+      z-index: 10001;
+    }
+    .nav-links li a{
+      display: block;
+      padding: 8px;
+      gap: 1px;
+    }
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, 'Times New Roman', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', 'Courier New', monospace;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    font-size:0.72rem;
+  }
+
+  a{color:inherit;}
+
+ 
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--ink);
+    color:var(--paper);
+    overflow:hidden;
+    padding:0 6vw;
+  }
+  .hero canvas{
+    position:absolute; inset:0; width:100%; height:100%;
+    opacity:0.85;
+  }
+  .hero-inner{
+    position:relative; z-index:2;
+    max-width:760px;
+    padding:120px 0 140px;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:10px;
+    color:var(--verdigris-light);
+    margin-bottom:26px;
+  }
+  .eyebrow::before{
+    content:''; width:26px; height:1px; background:var(--verdigris-light);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem, 5vw, 4rem);
+    line-height:1.08;
+    margin-bottom:26px;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--amber);
+  }
+  .hero p.lede{
+    font-size:1.15rem; color:rgba(246,243,236,0.72); max-width:520px; margin-bottom:44px;
+  }
+  .hero-actions{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    padding:14px 26px; border-radius:100px; font-size:0.95rem;
+    text-decoration:none; display:inline-block; border:1px solid transparent;
+    transition:transform 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--amber); color:var(--ink); font-weight:600;}
+  .btn-ghost{border-color:rgba(246,243,236,0.35); color:var(--paper);}
+
+  
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:110px 6vw;}
+  .section-head{max-width:640px; margin-bottom:64px;}
+  .section-head .eyebrow{color:var(--verdigris);}
+  .section-head .eyebrow::before{background:var(--verdigris);}
+  .section-head h2{font-size:clamp(1.8rem,3.4vw,2.6rem); color:var(--ink);}
+  .section-head p{color:var(--slate); margin-top:16px; font-size:1.05rem; max-width:540px;}
+
+  /* ---------- SERVICES GRID ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+    gap:1px; background: white;
+    border:1px solid white;
+  }
+  .service-card{
+    background:var(--paper);
+    padding:38px 32px;
+    position:relative;
+    transition:background 0.2s ease;
+  }
+  .service-card:hover{background:var(--paper-2);}
+  .service-card .mark{
+    width:38px; height:38px; border-radius:10px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--ink); color:var(--amber);
+    margin-bottom:22px; font-family:'IBM Plex Mono',monospace; font-size:0.8rem;
+  }
+  .service-card h3{font-size:1.2rem; margin-bottom:10px; color:var(--ink);}
+  .service-card p{color:var(--slate); font-size:0.95rem;}
+
+  /* ---------- PROCESS ---------- */
+  .process{background:var(--ink-2); color:var(--paper);}
+  .process .section-head p{color:rgba(246,243,236,0.6);}
+  .process .section-head .eyebrow{color:var(--verdigris-light);}
+  .process .section-head .eyebrow::before{background:var(--verdigris-light);}
+  .steps{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+    gap:36px;
+  }
+  .step{border-top:1px solid var(--line); padding-top:20px;}
+  .step .step-num{font-family:'IBM Plex Mono',monospace; color:var(--amber); font-size:0.85rem;}
+  .step h3{font-size:1.1rem; margin:14px 0 10px; color:var(--paper);}
+  .step p{color:rgba(246,243,236,0.62); font-size:0.92rem;}
+
+  /* ---------- INDUSTRIES ---------- */
+  .chips{display:flex; flex-wrap:wrap; gap:12px; margin-bottom:56px;}
+  .chip{
+    padding:10px 18px; border:1px solid rgba(18,24,43,0.18);
+    border-radius:100px; font-size:0.88rem; color:var(--ink);
+  }
+
+  .industry-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+    gap:1px; background:rgba(18,24,43,0.1);
+    border:1px solid rgba(18,24,43,0.1);
+  }
+  .industry-card{
+    background:var(--paper);
+    padding:34px 30px;
+    display:flex; flex-direction:column;
+    transition:background 0.2s ease;
+  }
+  .industry-card:hover{background:var(--paper-2);}
+  .industry-card .ind-head{
+    display:flex; align-items:center; gap:12px; margin-bottom:16px;
+  }
+  .industry-card .ind-icon{
+    width:36px; height:36px; border-radius:9px;
+    display:flex; align-items:center; justify-content:center;
+    background:var(--verdigris); flex-shrink:0;
+  }
+  .industry-card .ind-icon svg{width:18px; height:18px;}
+  .industry-card h3{font-size:1.08rem; color:var(--ink);}
+  .industry-card p{color:var(--slate); font-size:0.92rem; margin-bottom:18px;}
+  .industry-card .roles{
+    margin-top:auto; padding-top:16px; border-top:1px dashed rgba(18,24,43,0.15);
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .industry-card .role-tag{
+    font-family:'IBM Plex Mono',monospace; font-size:0.72rem;
+    color:var(--verdigris); background:rgba(47,110,100,0.08);
+    padding:4px 10px; border-radius:100px; text-transform:uppercase; letter-spacing:0.04em;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta{
+    background:var(--verdigris); color:var(--paper);
+    text-align:center;
+  }
+  .cta h2{font-size:clamp(1.8rem,3.6vw,2.8rem); max-width:640px; margin:0 auto 20px;}
+  .cta p{color:rgba(246,243,236,0.82); max-width:480px; margin:0 auto 40px;}
+  .cta .btn-primary{background:var(--ink); color:var(--paper);}
+
+.stats{
+    background:#0a4fa8;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    text-align:center;
+    color:#fff;
+    padding: 40px;
+}
+
+.stat-box h2{
+    font-size:42px;
+    margin-bottom:10px;
+    color:#ffcc33;
+}
+
+.stat-box p{
+    font-size:17px;
+}
+  
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--ink); color:rgba(246,243,236,0.6);
+    padding:60px 6vw 40px;
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:30px;
+    font-size:0.88rem;
+  }
+  footer .brand{color:var(--paper);}
+  footer .col h4{color:var(--paper); font-size:0.8rem; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:14px; font-family:'IBM Plex Mono',monospace; font-weight:400;}
+  footer .col a{display:block; margin-bottom:8px; text-decoration:none;}
+  footer .col a:hover{color:var(--paper);}
+  .footer-bottom{
+    width:100%; border-top:1px solid var(--line); margin-top:40px; padding-top:24px;
+    font-size:0.78rem; color:rgba(246,243,236,0.4);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .hero canvas{display:none;}
+  }
+
+  @media (max-width:720px){
+    nav ul{display:none;}
+    section{padding:70px 6vw;}
+    .hero-inner{padding:80px 0 90px;}
+  }
+
+
+  
+</style>
+</head>
+<body>
+
+
+    <header>
+        <div class="container navbar">
+           
+            <a href="#" class="logo-container"><img src="staffing agency.img" alt="Nexus logo" class="logo-img"></a>
+
+        
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="job.html">Job Listing</a></li>
+                    <li><a href="employer.html">Employer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburgerBtn">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+        </div>
+    </header>
+
+
+
+<section class="hero">
+  <canvas id="net"></canvas>
+  <div class="hero-inner">
+    <div class="eyebrow mono">Staffing &amp; workforce solutions</div>
+    <h1>Nexus Staffing Agency  <em>Connect Job seekers</em> with suitable job opportunites.</h1>
+    <p class="lede">Nexus connects businesses with the people who move them forward — from a single contract role to a full department build-out.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="job.html">Hire talent</a>
+      <a class="btn btn-ghost" href="contact.html">Find work</a>
+    </div>
+  </div>
+  
+</section>
+
+<section id="services">
+  <div class="section-head">
+    <div class="eyebrow mono">What we do</div>
+    <h2>Five ways to close a gap in your team.</h2>
+    <p>Every engagement starts the same way — understanding the role, the team, and the timeline — then routes to whichever service actually fits.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="mark">01</div>
+      <h3>Temporary Staffing</h3>
+      <p>Vetted candidates placed within days to cover leave, seasonal spikes, or short-term projects — fully payrolled by Nexus.</p>
+    </div>
+    <div class="service-card">
+      <div class="mark">02</div>
+      <h3>Permanent Placement</h3>
+      <p>Full-cycle recruiting for direct-hire roles, from sourcing through offer negotiation, backed by a replacement guarantee.</p>
+    </div>
+    <div class="service-card">
+      <div class="mark">03</div>
+      <h3>Contract-to-Hire</h3>
+      <p>Trial a candidate on our payroll before committing — convert to a permanent offer whenever both sides are ready.</p>
+    </div>
+    <div class="service-card">
+      <div class="mark">04</div>
+      <h3>Executive Search</h3>
+      <p>Confidential, retained search for leadership and specialist roles where the market is narrow and the stakes are high.</p>
+    </div>
+    <div class="service-card">
+      <div class="mark">05</div>
+      <h3>Workforce Consulting</h3>
+      <p>Headcount planning, org design, and hiring-process audits for teams scaling faster than their systems can follow.</p>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="section-head">
+    <div class="eyebrow mono">How it works</div>
+    <h2>Four steps, start to placement.</h2>
+    <p>The order matters — each stage narrows the field until the right person is the only one left.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01 / Brief</div>
+      <h3>Scope the role</h3>
+      <p>We sit with the hiring manager to define the must-haves, the deal-breakers, and what success looks like at 90 days.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02 / Source</div>
+      <h3>Build the shortlist</h3>
+      <p>We pull from our active network and run targeted outreach until we have a shortlist worth your time.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03 / Screen</div>
+      <h3>Verify the fit</h3>
+      <p>Skills checks, reference calls, and a structured interview — so every candidate you meet has already cleared the bar.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04 / Place</div>
+      <h3>Onboard &amp; support</h3>
+      <p>We handle offer logistics and stay in touch through the first weeks to make sure the placement is actually working.</p>
+    </div>
+  </div>
+</section>
+
+<section id="industries">
+  <div class="section-head">
+    <div class="eyebrow mono">Where we work</div>
+    <h2>Staffing solutions built around each industry.</h2>
+    <p>Every sector fills roles differently — the compliance checks, the pace, the skills that actually matter. Our teams specialize by industry so the process reflects that.</p>
+  </div>
+
+  <div class="chips">
+    <span class="chip">Information Technology</span>
+    <span class="chip">Healthcare &amp; Life Sciences</span>
+    <span class="chip">Manufacturing &amp; Logistics</span>
+    <span class="chip">Finance &amp; Accounting</span>
+    <span class="chip">Retail &amp; Hospitality</span>
+    <span class="chip">Engineering</span>
+    <span class="chip">Administrative &amp; Office Support</span>
+    <span class="chip">Customer Experience</span>
+  </div>
+
+  <div class="industry-grid">
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#F6F3EC" stroke-width="1.6"/><path d="M8 20h8M12 16v4" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Information Technology</h3>
+      </div>
+      <p>Contract and permanent developers, DevOps, QA, and support engineers, screened for stack fit before you ever see a resume.</p>
+      <div class="roles">
+        <span class="role-tag">Developers</span>
+        <span class="role-tag">SysAdmins</span>
+        <span class="role-tag">QA</span>
+        <span class="role-tag">Help Desk</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a4.5 4.5 0 0 1 7-3.7A4.5 4.5 0 0 1 19 11c0 5.5-7 10-7 10Z" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Healthcare &amp; Life Sciences</h3>
+      </div>
+      <p>Licensed clinical staff and back-office support, with credential and background checks handled before day one.</p>
+      <div class="roles">
+        <span class="role-tag">RNs / LPNs</span>
+        <span class="role-tag">Medical Billing</span>
+        <span class="role-tag">Lab Techs</span>
+        <span class="role-tag">Care Coordinators</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="10" width="8" height="10" stroke="#F6F3EC" stroke-width="1.6"/><rect x="13" y="4" width="8" height="16" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Manufacturing &amp; Logistics</h3>
+      </div>
+      <p>Line workers, forklift operators, and warehouse leads sourced on short notice to match seasonal demand and shift patterns.</p>
+      <div class="roles">
+        <span class="role-tag">Assemblers</span>
+        <span class="role-tag">Forklift Ops</span>
+        <span class="role-tag">Warehouse Leads</span>
+        <span class="role-tag">QC Inspectors</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M4 18V9l8-5 8 5v9" stroke="#F6F3EC" stroke-width="1.6"/><path d="M9 18v-5h6v5" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Finance &amp; Accounting</h3>
+      </div>
+      <p>Bookkeepers through controllers, plus short-term coverage for close season, audits, and system migrations.</p>
+      <div class="roles">
+        <span class="role-tag">Bookkeepers</span>
+        <span class="role-tag">Analysts</span>
+        <span class="role-tag">Controllers</span>
+        <span class="role-tag">AP / AR</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 21h18M5 21V8l4-4h6l4 4v13" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Retail &amp; Hospitality</h3>
+      </div>
+      <p>Front-of-house and seasonal staff ready fast, with scheduling flexibility built around peak periods and events.</p>
+      <div class="roles">
+        <span class="role-tag">Store Associates</span>
+        <span class="role-tag">Front Desk</span>
+        <span class="role-tag">Event Staff</span>
+        <span class="role-tag">Shift Supervisors</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="#F6F3EC" stroke-width="1.6"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2 2M16.4 16.4l2 2M5.6 18.4l2-2M16.4 7.6l2-2" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Engineering</h3>
+      </div>
+      <p>Mechanical, civil, and electrical engineers for project-based contracts or permanent additions to in-house teams.</p>
+      <div class="roles">
+        <span class="role-tag">Mechanical</span>
+        <span class="role-tag">Civil</span>
+        <span class="role-tag">Electrical</span>
+        <span class="role-tag">Project Engineers</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="2" stroke="#F6F3EC" stroke-width="1.6"/><path d="M8 9h8M8 13h5" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Administrative &amp; Office Support</h3>
+      </div>
+      <p>Reception, executive assistants, and office managers placed with an eye for tools fluency and cultural fit.</p>
+      <div class="roles">
+        <span class="role-tag">Receptionists</span>
+        <span class="role-tag">EAs</span>
+        <span class="role-tag">Office Managers</span>
+        <span class="role-tag">Data Entry</span>
+      </div>
+    </div>
+
+    <div class="industry-card">
+      <div class="ind-head">
+        <div class="ind-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2Z" stroke="#F6F3EC" stroke-width="1.6"/></svg>
+        </div>
+        <h3>Customer Experience</h3>
+      </div>
+      <p>Call center and support staff scaled up or down with volume, onboarded with your scripts and tools from day one.</p>
+      <div class="roles">
+        <span class="role-tag">Call Center</span>
+        <span class="role-tag">Support Reps</span>
+        <span class="role-tag">Team Leads</span>
+        <span class="role-tag">QA Reviewers</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta" id="cta">
+  <h2>Tell us who you need — or what you can do.</h2>
+  <p>Whether you're hiring for one seat or twenty, or looking for your next role, a Nexus consultant will follow up within one business day.</p>
+  <a class="btn btn-primary" href="contact.html">Start a conversation</a>
+</section>
+<br>
+<br>
+
+
+
+  <center><h1 style="color: blue;">Our Journey in numbers</h1></center>
+    <br>
+
+  <section class="stats">
+
+        <div class="stat-box">
+            <h2>9 Days+</h2>
+            <p>Average time-to-fill</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>420+</h2>
+            <p>Placements made</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>92%</h2>
+            <p>12 months rentention</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>18</h2>
+            <p>Industries served</p>
+        </div>
+
+    </section>
+
+<footer>
+  <div class="col">
+    <div class="brand" style="margin-bottom:14px;">Nexus</div>
+    <p style="max-width:220px; color:rgba(246,243,236,0.5); font-size:0.85rem;">Staffing and workforce solutions built around the people, not just the roles.</p>
+  </div>
+  <div class="col">
+    <h4>Services</h4>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="employer.html">Employer</a>
+  </div>
+  <div class="col">
+    <h4>Company</h4>
+    <a href="job.html">Jobs</a>
+    <a href="contact.html">contact Us</a>
+    <a href="signup.html">Signup</a>
+  </div>
+  <div class="col">
+    <h4>Contact</h4>
+    <a href="mailto:hello@nexusstaffing.example">hello@nexusstaffing.example</a>
+    <a href="tel:+10000000000">+1 (000) 000-0000</a>
+  </div>
+  <div class="footer-bottom">© 2026 Nexus Staffing Agency. All rights reserved.</div>
+</footer>
+<script>
+  const hamburgerBtn=document.getElementById("hamburgerBtn");
+  document.getElementById("navLinks");
+
+  hamburgerBtn.addEventListener("click", function(){
+    navLinks.classList.toggle("active");
+  });
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
