@@ -1,0 +1,662 @@
+/* ===========================
+   GOOGLE FONT & RESET
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+color:#222;
+}
+
+/*===========================
+ NAVBAR
+===========================*/
+
+header{
+position:sticky;
+top:0;
+z-index:1000;
+background:#fff;
+box-shadow:0 3px 15px rgba(0,0,0,.08);
+}
+
+.navbar{
+max-width:1400px;
+margin:auto;
+padding:15px 40px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo img{
+width:120px;
+height:56px;
+border-radius:0;
+object-fit:contain;
+display:block;
+flex-shrink:0;
+}
+
+.logo h2{
+font-size:26px;
+font-weight:700;
+color:#004aad;
+}
+
+.nav-links{
+display:flex;
+list-style:none;
+gap:28px;
+align-items:center;
+}
+
+.nav-links li a{
+text-decoration:none;
+color:#333;
+font-weight:500;
+transition:.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active{
+color:#0056d6;
+}
+
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+
+/*===========================
+ SEARCH SECTION
+===========================*/
+
+.search-section{
+max-width:1300px;
+margin:40px auto;
+padding:40px;
+background:#fff;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.search-section h1{
+font-size:40px;
+text-align:center;
+color:#003f9e;
+margin-bottom:10px;
+}
+
+.search-section p{
+text-align:center;
+color:#666;
+margin-bottom:35px;
+}
+
+.search-bar{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:18px;
+}
+
+.search-input{
+display:flex;
+align-items:center;
+background:#f3f5fb;
+padding:15px;
+border-radius:12px;
+}
+
+.search-input i{
+color:#0056d6;
+margin-right:12px;
+font-size:18px;
+}
+
+.search-input input,
+.search-input select{
+width:100%;
+border:none;
+outline:none;
+background:none;
+font-size:15px;
+}
+
+#searchBtn{
+border:none;
+background:#0056d6;
+color:#fff;
+font-size:16px;
+font-weight:600;
+border-radius:12px;
+cursor:pointer;
+transition:.3s;
+}
+
+#searchBtn:hover{
+background:#003f9e;
+transform:translateY(-2px);
+}
+
+/*===========================
+ JOB SECTION
+===========================*/
+
+.jobs-section{
+max-width:1300px;
+margin:auto;
+padding:20px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:28px;
+}
+
+.job-card{
+background:#fff;
+padding:28px;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.35s;
+border:1px solid #ececec;
+}
+
+.job-card:hover{
+transform:translateY(-8px);
+box-shadow:0 18px 35px rgba(0,0,0,.12);
+}
+
+.company-header{
+display:flex;
+align-items:center;
+gap:18px;
+margin-bottom:18px;
+}
+
+.company-logo{
+width:65px;
+height:65px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:700;
+color:#fff;
+}
+
+/* Badge Colors */
+
+.blue{background:#1976d2;}
+.green{background:#16a34a;}
+.orange{background:#fb8c00;}
+.purple{background:#7b1fa2;}
+.red{background:#e53935;}
+.teal{background:#00897b;}
+.sky{background:#03a9f4;}
+.pink{background:#d81b60;}
+.navy{background:#1e3a8a;}
+.violet{background:#6d28d9;}
+
+.company-header h2{
+font-size:24px;
+margin-bottom:5px;
+}
+
+.company-header h4{
+font-size:15px;
+color:#777;
+font-weight:500;
+}
+
+/*===========================
+ JOB INFO
+===========================*/
+
+.job-info{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin:18px 0;
+}
+
+.job-info span{
+background:#eef4ff;
+padding:10px 15px;
+border-radius:25px;
+font-size:14px;
+font-weight:500;
+color:#0056d6;
+}
+
+.job-info i{
+margin-right:6px;
+}
+
+/*===========================
+ SKILLS
+===========================*/
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:18px;
+}
+
+.skills span{
+background:#f2f4f8;
+padding:9px 16px;
+border-radius:20px;
+font-size:14px;
+transition:.3s;
+}
+
+.skills span:hover{
+background:#0056d6;
+color:#fff;
+}
+
+/*===========================
+ JOB FOOTER
+===========================*/
+
+.job-footer{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-top:25px;
+}
+
+.job-footer p{
+color:#777;
+font-size:14px;
+}
+
+.apply-btn{
+background:#0056d6;
+color:#fff;
+border:none;
+padding:12px 22px;
+border-radius:30px;
+font-size:15px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.apply-btn:hover{
+background:#003f9e;
+transform:scale(1.05);
+}
+/*==============================
+  APPLY POPUP
+==============================*/
+
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.55);
+display:none;
+justify-content:center;
+align-items:center;
+padding:20px;
+overflow-y:auto;
+z-index:9999;
+backdrop-filter:blur(5px);
+animation:fadeIn .3s ease;
+}
+
+.popup-box{
+width:95%;
+max-width:520px;
+max-height:90vh;
+background:#fff;
+border-radius:20px;
+overflow-y:auto;
+box-shadow:0 20px 50px rgba(0,0,0,.25);
+animation:popupScale .35s ease;
+}
+
+.popup-title{
+background:linear-gradient(135deg,#0056d6,#0084ff);
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+color:#fff;
+}
+
+.popup-title h2{
+font-size:24px;
+font-weight:600;
+}
+
+.close{
+font-size:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+.close:hover{
+transform:rotate(90deg);
+}
+
+#jobForm{
+padding:25px;
+display:flex;
+flex-direction:column;
+gap:16px;
+}
+
+#jobForm input{
+padding:14px 16px;
+border:1px solid #d9d9d9;
+border-radius:12px;
+font-size:15px;
+outline:none;
+transition:.3s;
+}
+
+#jobForm input:focus{
+border-color:#0056d6;
+box-shadow:0 0 10px rgba(0,86,214,.2);
+}
+
+#jobForm label{
+font-size:15px;
+font-weight:600;
+color:#444;
+}
+
+#jobForm button{
+background:linear-gradient(135deg,#0056d6,#007dff);
+color:#fff;
+border:none;
+padding:15px;
+border-radius:12px;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+#jobForm button:hover{
+transform:translateY(-2px);
+box-shadow:0 10px 20px rgba(0,86,214,.25);
+}
+
+/*==============================
+ SUCCESS POPUP
+==============================*/
+
+.success-popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.45);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:10000;
+backdrop-filter:blur(5px);
+}
+
+.success-box{
+background:#fff;
+width:90%;
+max-width:430px;
+padding:35px;
+border-radius:22px;
+text-align:center;
+animation:popupScale .35s ease;
+box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.success-icon{
+font-size:70px;
+margin-bottom:15px;
+animation:bounce 1s infinite;
+}
+
+.success-box h2{
+color:#16a34a;
+margin-bottom:15px;
+font-size:28px;
+}
+
+.success-box p{
+color:#555;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+#okBtn{
+background:#16a34a;
+color:#fff;
+border:none;
+padding:13px 28px;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+font-weight:600;
+transition:.3s;
+}
+
+#okBtn:hover{
+background:#12853c;
+transform:scale(1.05);
+}
+
+/*==============================
+ FOOTER
+==============================*/
+
+footer{
+margin-top:60px;
+background:#002d72;
+color:#fff;
+text-align:center;
+padding:25px;
+font-size:15px;
+}
+
+/*==============================
+ ANIMATIONS
+==============================*/
+
+@keyframes popupScale{
+0%{
+transform:scale(.7);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-8px);
+}
+}
+
+/*==============================
+ RESPONSIVE
+==============================*/
+
+@media(max-width:992px){
+
+.search-bar{
+grid-template-columns:1fr 1fr;
+}
+
+.jobs-section{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar{
+padding:15px 20px;
+}
+
+.menu-btn{
+display:block;
+}
+
+.nav-links{
+position:absolute;
+top:82px;
+left:-100%;
+width:100%;
+background:#fff;
+display:flex;
+flex-direction:column;
+gap:0;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.4s;
+padding:20px 0;
+max-height:calc(100vh - 100px);
+overflow-y:auto;
+z-index:1001;
+}
+
+.nav-links.active{
+left:0;
+}
+
+.nav-links li{
+width:100%;
+text-align:center;
+padding:16px 0;
+border-bottom:1px solid #eee;
+}
+
+.nav-links li:last-child{
+border-bottom:none;
+padding-top:20px;
+}
+
+.nav-links .signup-btn{
+display:inline-block;
+margin-top:4px;
+}
+
+.search-section{
+margin:20px;
+padding:25px;
+}
+
+.search-section h1{
+font-size:28px;
+}
+
+.search-bar{
+grid-template-columns:1fr;
+}
+
+.job-card{
+padding:20px;
+}
+
+.company-header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.job-footer{
+flex-direction:column;
+gap:15px;
+align-items:flex-start;
+}
+
+.apply-btn{
+width:100%;
+}
+
+.popup-box,
+.success-box{
+width:94%;
+}
+
+}
+
+@media(max-width:480px){
+
+.logo h2{
+font-size:20px;
+}
+
+.logo img{
+width:42px;
+height:42px;
+}
+
+.company-header h2{
+font-size:20px;
+}
+
+.company-logo{
+width:55px;
+height:55px;
+font-size:18px;
+}
+
+.job-info span,
+.skills span{
+font-size:13px;
+}
+
+.popup-title h2{
+font-size:20px;
+}
+}
