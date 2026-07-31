@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Staffing Agency | Login</title>
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="index.html">
+            <img src="logoA.png" class="img">
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-links" id="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">AboutUs</a>
+          <a href="services.html">Services</a>
+          <a href="job.html">Jobs</a>
+          <a href="employer.html">Employers</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html" class="active">Login</a>
+          <a href="signup.html">Sign Up</a>
+        </nav>
+      </header>
+
+      <main class="auth-center">
+        <section class="form-card">
+          <h2>Login</h2>
+          <p class="form-intro">Enter your details to access your account.</p>
+
+          <form id="loginForm" novalidate>
+            <div class="input-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+
+            <div class="input-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required />
+            </div>
+
+            <button type="submit" class="primary-btn">Login</button>
+            <p class="form-footer">
+              Don’t have an account?
+              <a href="signup.html">Create one</a>
+            </p>
+            <p id="loginMessage" class="form-message" aria-live="polite"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+    <footer>
+
+        <div class="footer-content">
+
+            <div class="footer-logo">
+                   <h2>Find the right people faster</h2>
+                <p>
+                   Create your staffing account to connect with employers, track applications,
+            and explore exciting opportunities.
+                </p>
+            </div>
+
+            <div class="footer-links">
+
+                <h3>Quick Links</h3>
+
+                <ul>
+           <li> <a href="index.html">Home</a> </li>
+         <li> <a href="about.html" >AboutUs</a></li> 
+         <li> <a href="services.html">Services</a></li> 
+         <li><a href="job.html">Jobs</a></li>
+         <li><a href="employer.html">Employers</a></li> 
+         <li> <a href="contact.html">Contact</a></li> 
+                </ul>
+
+            </div>
+
+            <div class="footer-contact">
+
+                <h3>Contact</h3>
+
+                <p>Email : nexus@agency.com</p>
+                <p>Phone : +91 98765 43210</p>
+                <p>Location : Hyderabad, India</p>
+
+            </div>
+
+        </div>
+          <hr 60%>
+        <div class="footer-bottom">
+            <p>
+                © 2026 . All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+    <script src="login.js"></script>
+  </body>
+</html>
