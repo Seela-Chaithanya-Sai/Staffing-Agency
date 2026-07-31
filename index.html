@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Staffing Agency</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --accent: #2563eb;
+            --accent-hover: #1d4ed8;
+            --text-main: #334155;
+            --text-light: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+       
+.signup-btn{
+background:#0056d6;
+color:#fff!important;
+padding:10px 22px;
+border-radius:30px;
+transition:.3s;
+}
+
+.signup-btn:hover{
+background:#003f9e;
+}
+
+.menu-btn{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#0056d6;
+}
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: white;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-img {
+            height: 55px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            color: var(--text-main);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background-color: var(--accent);
+            color: var(--white);
+            padding: 0.65rem 1.25rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION WITH BANNER BACKGROUND --- */
+        .hero {
+            padding: 180px 0 120px;
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: var(--white);
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.25rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-content h1 span {
+            color: #60a5fa;
+        }
+
+        .hero-content p {
+            font-size: 1.15rem;
+            color: #cbd5e1;
+            margin-bottom: 2rem;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1rem;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn-outline {
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-image-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-item h3 {
+            font-size: 2rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+
+        /* --- STAFFING OVERVIEW SECTION WITH BANNER BACKGROUND --- */
+        .overview {
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.92)), url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08);
+            border-color: var(--accent);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: #eff6ff;
+            color: var(--accent);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-link {
+            font-weight: 600;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* --- FORMAL DETAILS / ABOUT SECTION WITH BANNER BACKGROUND --- */
+        .company-details {
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+            color: var(--white);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .details-content h2 {
+            font-size: 2.25rem;
+            color: var(--white);
+            margin-bottom: 1.5rem;
+        }
+
+        .details-content p {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            color: var(--white);
+        }
+
+        .feature-item i {
+            color: #60a5fa;
+        }
+
+        .trust-badge-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .trust-badge-box i {
+            font-size: 3rem;
+            color: #60a5fa;
+            margin-bottom: 1rem;
+        }
+
+        .trust-badge-box h4 {
+            font-size: 1.5rem;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-badge-box p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* --- JOURNEY SAGA SECTION WITH BANNER BACKGROUND --- */
+        .journey-saga {
+            padding: 120px 0;
+            position: relative;
+            background: linear-gradient(rgba(241, 245, 249, 0.95), rgba(241, 245, 249, 0.95)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1920') no-repeat center center/cover;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 4rem auto 0;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--border);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -2px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '\f058';
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            right: -16px;
+            background-color: var(--white);
+            border: 3px solid var(--accent);
+            top: 15px;
+            border-radius: 50%;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        .left {
+            left: 0;
+        }
+
+        .right {
+            left: 50%;
+        }
+
+        .right::after {
+            left: -16px;
+        }
+
+        .timeline-content {
+            padding: 1.75rem;
+            background-color: var(--white);
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: #eff6ff;
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--primary-light);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 40px;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            margin: 0;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 768px) {
+            .hero-grid, .details-grid, .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::after {
+                left: 31px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .right {
+                left: 0%;
+            }
+
+            .timeline-item::after {
+                left: 15px;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 0px;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .signup-btn {
+                display: inline-block;
+            }
+
+            
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER SECTION (Branding Logo Only) -->
+    <header>
+        <div class="container navbar">
+           
+            <a href="#" class="logo-container"><img src="nex.webp" alt="Nexus logo" class="logo-img"></a>
+
+        
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="job.html">Job Listing</a></li>
+                    <li><a href="employer.html">Employer</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="signup-btn">Sign Up</a></li>
+                </ul>
+            </nav>
+
+            <div class="hamburger" id="hamburgerBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH DYNAMIC BANNER BACKGROUND -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1>Connecting World-Class Talent with <span>Leading Enterprises</span></h1>
+                <p>We deliver agile, precise, and scalable workforce solutions tailored to accelerate your business growth—whether contract, permanent, or executive placement.</p>
+                <div class="hero-btns">
+                    <a href="#overview" class="btn btn-primary">Explore Services</a>
+                    <a href="#journey" class="btn btn-outline">Our Journey Saga</a>
+                </div>
+            </div>
+            <div class="hero-card-container">
+                <div class="hero-image-box">
+                    <div class="stat-row">
+                        <div class="stat-item">
+                            <h3>98%</h3>
+                            <p>Client Retention</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>15k+</h3>
+                            <p>Placements Made</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="background: rgba(96, 165, 250, 0.1); color: #60a5fa; padding: 12px; border-radius: 50%;">
+                            <i class="fa-solid fa-shield-check fa-lg"></i>
+                        </div>
+                        <div>
+                            <h4 style="color: var(--white); font-size: 1rem;">Verified Elite Talent Pool</h4>
+                            <p style="color: #94a3b8; font-size: 0.85rem;">Vetted rigorously through comprehensive technical evaluations.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STAFFING OVERVIEW SECTION WITH BANNER BACKGROUND -->
+    <section class="overview" id="overview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Staffing Solutions</h2>
+                <p>Designed to scale dynamically with your business lifecycle, offering flexible models for every recruitment vertical.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-user-clock"></i>
+                    </div>
+                    <h3>Contract Staffing</h3>
+                    <p>On-demand specialized professionals for project-based demands, seasonal surges, or immediate workforce gaps.</p>
+                    <a href="#" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <h3>Permanent Placement</h3>
+                    <p>End-to-end executive search and recruitment to find long-term cultural and technical additions for your core team.</p>
+                    <a href="#" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-layer-group"></i>
+                    </div>
+                    <h3>Managed RPO Services</h3>
+                    <p>Outsource your recruitment operations completely to our expert team for streamlined, data-driven hiring at scale.</p>
+                    <a href="#" class="card-link">Learn More <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FORMAL COMPANY DETAILS SECTION WITH BANNER BACKGROUND -->
+    <section class="company-details" id="about">
+        <div class="container details-grid">
+            <div class="details-content">
+                <h2>Built on Integrity, Driven by Results</h2>
+                <p>Founded on the principle that human capital is the single greatest competitive advantage, our staffing operations combine deep industry insight with cutting-edge talent intelligence tools.</p>
+                <p>We partner with companies ranging from fast-scaling startups to global Fortune 500 enterprises, ensuring reliable compliance, transparent reporting, and rapid turnaround times.</p>
+                
+                <div class="features-list">
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Industry-Specific Vetting</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Fast Deployment</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Full Legal Compliance</div>
+                    <div class="feature-item"><i class="fa-solid fa-circle-check"></i> Dedicated Account Leads</div>
+                </div>
+            </div>
+            <div>
+                <div class="trust-badge-box">
+                    <i class="fa-solid fa-award"></i>
+                    <h4>Industry Excellence Certified</h4>
+                    <p>Recognized globally for high ethical placement standards, workforce diversity initiatives, and operational reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SUCCESSFUL JOURNEY SAGA SECTION WITH BANNER BACKGROUND -->
+    <section class="journey-saga" id="journey">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Successful Journey Saga</h2>
+                <p>From a boutique recruitment consultancy to an international workforce powerhouse, track the milestones that defined our evolution.</p>
+            </div>
+            
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2016</span>
+                        <h3>Inception & Foundation</h3>
+                        <p>Established as a specialized technology staffing startup with a passionate core team of three recruitment veterans.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2019</span>
+                        <h3>Regional Expansion</h3>
+                        <p>Scaled operations across three major metropolitan hubs, broadening our footprint into financial services and engineering.</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2022</span>
+                        <h3>The 10,000th Placement</h3>
+                        <p>Celebrated a major corporate milestone, hitting over 10,000 successful executive and technical professional placements globally.</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <span class="timeline-year">2026</span>
+                        <h3>Global Enterprise Leader</h3>
+                        <p>Recognized as an industry leader in RPO and talent solutions, serving enterprises across multiple continents with next-gen screening tech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo-container">
+                        <div class="logo-container"><img src="nexus.webp" alt="Nexus logo" class="logo-img"></div>
+                    </div>
+                    <p>Empowering businesses and professionals globally through elite workforce solutions, precision matching, and trusted partnerships.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="job.html">Job Listing</a></li>
+                    <li><a href="employer.html">Employer Section</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Specializations</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Technology & IT</a></li>
+                        <li><a href="#">Executive Search</a></li>
+                        <li><a href="#">Finance & Accounting</a></li>
+                        <li><a href="#">Engineering</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get In Touch</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html"><i class="fa-solid fa-envelope"></i> contact@nexus.com</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-phone"></i> +91 98765 43210</a></li>
+                        <li><a href="contact.html"><i class="fa-solid fa-location-dot"></i> Jayanagara, Bangalore</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Nexus Staffing Agency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR MOBILE NAVIGATION INTERACTIVITY -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            
+            const icon = hamburgerBtn.querySelector('i');
+            if(navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                const icon = hamburgerBtn.querySelector('i');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
+</html>
